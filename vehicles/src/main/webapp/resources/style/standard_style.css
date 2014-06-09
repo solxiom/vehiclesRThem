@@ -1,0 +1,184 @@
+/* 
+    Document   : development_style
+    Created on : Dec 15, 2013, 10:34:06 PM
+    Author     : kavan
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+html{
+    position: relative;
+    min-height: 100%;
+}
+html body{
+    width:100%;  
+    overflow-x: hidden;
+}
+body{
+    margin:0; 
+    margin-top:60px;
+    margin-bottom: 200px;
+    color:black;
+}
+.coolTag{
+    background: #ffcaca;
+    padding: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+    float:right;
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
+    margin-top: 10px;
+}
+.notification{
+    margin-left:700px;
+    width: 400px;
+    height:70px;
+    border-radius: 15px;
+    background: #ffcaca;
+    color: black;
+    text-align: center;
+    position:fixed;
+    box-shadow: 10px 10px 5px #888888;
+    display:none;
+}
+.notification #closeNotife{
+    margin-left:90%;
+    color:blue;
+    font-style: italic;
+    cursor: pointer;
+}
+.car_order image{
+    width:60px;
+    height: 40px;
+}
+
+.order_item{
+    background: beige;
+    border-radius: 15px;
+    margin-top: 10px;
+}
+
+
+header{
+    position: fixed;
+    top:0;
+    height:100px;
+    width: 100%;
+    background-color: white;
+    color: #999966;
+    /*border-bottom: solid 5px;*/
+    /*border-color: #787878;*/
+    box-shadow: 10px 10px 5px #888888;
+    overflow-x: hidden;
+    z-index: 500;
+
+}
+#refillBT{    
+    width: 80px;
+    height:30px;
+    margin-left:20px;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: large;
+}
+#commandBT{
+    width:80px;
+    height:30px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: large;
+}
+#commandDiv{
+    margin: auto;
+    margin-left: 350px;
+    z-index: 500;
+}
+#commandDiv input[type=text]{
+    width: 400px;
+    height: 25px;
+    font-size: large;
+    font-style:oblique;
+    border-radius: 15px;
+}
+
+header img{
+    width: 124px;
+    height:124px;
+    position:absolute;
+    top:-32px;
+    left: 70%;
+    z-index: 100;
+}
+header > span:nth-of-type(2){
+    margin-left: 150px;
+}
+header div, #main, footer #logo_div{
+    max-width: 1200px;
+    min-width: 600px;
+    width: 80%;
+}
+header div{
+
+    margin: 0 auto;
+
+}
+#header_title{
+    margin-top: 5px;
+    font-size: xx-large;
+    font-weight: bold;
+}
+#header_title > span:nth-of-type(3){
+    font-size: medium;
+    font-weight: normal;
+    font-style: italic;
+    margin-left: 40px;
+}
+
+#main{    
+    margin:150px auto;
+    height:100%; 
+    min-width: 1000px;
+    /*white-space: nowrap;*/
+    /*display: block;*/
+
+}
+#main #orders{    
+    position: absolute;
+    width: 730px;
+
+}
+#main #colors{    
+    border-radius: 15px;
+    box-shadow: 10px 10px 5px #888888;
+    background: #c2ccd1;
+    width:270px;
+    height:400px;
+    position:fixed;
+    left:65%;
+    padding: 5px;
+    padding-left:10px;
+    display:block;
+}
+#colors > span{    
+    white-space: nowrap;
+    display: inline-block;
+    font-size: large;
+    /*font-style: oblique;*/
+}
+#colors > .inner > span{    
+    white-space: nowrap;
+    display: block;
+    font-size: large;
+    font-style: oblique;
+    margin-top:5px;
+}
+
+
+
+
+
+

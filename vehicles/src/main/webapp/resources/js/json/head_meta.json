@@ -1,0 +1,28 @@
+{
+    "styles": [
+        {
+            "local": "true",
+            "path": "style/",
+            "file": "standard_style.css"
+        },
+        {
+            "local": "true",
+            "path": "style/",
+            "file": "registration_style.css"
+        }],
+    "scripts": [
+        {
+            "local": "true",
+            "path": "js/lib/",
+            "file": "jquery.loadTemplate-1.3.2.js"
+        },
+        {
+            "local": "false",
+            "path": "//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/",
+            "file": "jquery-ui.min.js"
+        }
+    ],
+     "favicon":{"local":"true","path":"img/", "file":"favicon.png"}
+
+}
+
