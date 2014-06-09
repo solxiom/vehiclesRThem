@@ -8,8 +8,13 @@
     if (typeof window.CoderLeopard === "undefined") {
         window.CoderLeopard = {};
     }
+    //
+    var paf = function() {
+        this.subscription = {};
 
-    var package = function(str) {
+    };
+
+    paf.prototype.package = function(str) {
         'use strict';
 
         var parent = CoderLeopard;
@@ -79,12 +84,7 @@
         return this.getHashValue().split("/")
     };
 
-    //
-    var paf = function() {
-        this.subscription = {};
 
-    };
-    paf.prototype.package = package;
     paf.prototype.url = new _urlData();
     paf.prototype.subscribe = function(key, fn) {
         'use strict';
@@ -102,7 +102,7 @@
     };
     paf.prototype.publish = function(params) {
         'use strict';
-        
+
         if (typeof params === "undefined" || typeof params.key === "undefined") {
             return;
         }
@@ -113,7 +113,7 @@
             if (typeof this.subscription[params.key][i] === "function") {
                 if (typeof params.data !== "undefined") {
                     this.subscription[params.key][i](params.data);
-                }else{
+                } else {
                     this.subscription[params.key][i]();
                 }
             }

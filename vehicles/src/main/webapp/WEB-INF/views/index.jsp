@@ -23,7 +23,9 @@
         <script src="<%=request.getContextPath()%>/resources/js/root.js" type="text/javascript"></script>
         <script src="<%=request.getContextPath()%>/resources/js/App.js" type="text/javascript"></script>
         <script src="<%=request.getContextPath()%>/resources/js/Model.js" type="text/javascript"></script>
-        <script src="<%=request.getContextPath()%>/resources/js/View.js" type="text/javascript"></script>
+        <script src="<%=request.getContextPath()%>/resources/js/View.js" type="text/javascript"></script>   
+        
+        <!--vehiclesJS_kavan.min-->
     </head>
     <body>
         <header>
