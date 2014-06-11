@@ -52,8 +52,10 @@ public class SimpleOrderServiceIT {
         colorRepo = new ColorMongoRepository(SpringMongoTestConfig.class);
         updateService = new SimpleLastUpdateService(new LastUpdateMongoRepository());
 
-        colorService = new SimpleColorService(colorRepo, updateService, dbUpdateKey);
-        orderService = new SimpleOrderService(orderRepo, colorService,updateService, dbUpdateKey);
+        colorService = new SimpleColorService(colorRepo, updateService);
+        colorService.setUpdateKey(dbUpdateKey);
+        orderService = new SimpleOrderService(orderRepo, colorService,updateService);
+        orderService.setUpdateKey(dbUpdateKey);
     }
 
     /**

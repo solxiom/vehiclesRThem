@@ -16,25 +16,29 @@ import com.vehicles.service.interfaces.OrderService;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author kavan
  */
+@Service
 public class SimpleOrderService extends GenericServiceImpl<Order> implements OrderService {
 
     private ColorService colorService;
     private LastUpdateService updateService;
-    private final String updateKey;
-
+//    private final String updateKey;
+    
+    @Autowired
     public SimpleOrderService(OrderRepository repository, 
             ColorService colorService, 
-            LastUpdateService updateService, String updateKey) {
+            LastUpdateService updateService) {
 
         super(repository);
         this.colorService = colorService;
         this.updateService = updateService;
-        this.updateKey = updateKey;
+//        this.updateKey = updateKey;
     }
 
     @Override
@@ -47,7 +51,7 @@ public class SimpleOrderService extends GenericServiceImpl<Order> implements Ord
         }
         super.save(order);
         colorService.popColor(order.getVehicle().getColor().getName());
-        updateService.save(new LastUpdate(updateKey, new Date()));
+        updateService.save(new LastUpdate(getUpdateKey(), new Date()));
     }
 
     @Override

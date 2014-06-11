@@ -6,23 +6,14 @@ import com.vehicles.domain.entities.Order;
 import com.vehicles.domain.enums.LastUpdate;
 import com.vehicles.exceptions.BadCommandException;
 import com.vehicles.exceptions.StoarageOutOfColorException;
-import com.vehicles.repository.ColorMongoRepository;
-import com.vehicles.repository.LastUpdateMongoRepository;
-import com.vehicles.repository.OrderMongoRepository;
-import com.vehicles.repository.interfaces.ColorRepository;
-import com.vehicles.repository.interfaces.LastUpdateRepository;
-import com.vehicles.repository.interfaces.OrderRepository;
-import com.vehicles.service.SimpleColorService;
-import com.vehicles.service.SimpleLastUpdateService;
-import com.vehicles.service.SimpleOrderService;
 import com.vehicles.service.interfaces.ColorService;
 import com.vehicles.service.interfaces.LastUpdateService;
 import com.vehicles.service.interfaces.OrderService;
-import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Logger;
 import javax.servlet.http.HttpServletResponse;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -41,13 +32,18 @@ public class VehiclesAPIController {
     private final Logger logger = Logger.getLogger(getClass().getName());
     CommandUtil util = new CommandUtil();
 
-    LastUpdateRepository updateRepo = new LastUpdateMongoRepository();
-    OrderRepository orderRepo = new OrderMongoRepository();
-    ColorRepository colorRepo = new ColorMongoRepository();
 
-    LastUpdateService updateService = new SimpleLastUpdateService(updateRepo);
-    ColorService colorService = new SimpleColorService(colorRepo,updateService,updateDBKey);
-    OrderService orderService = new SimpleOrderService(orderRepo, colorService, updateService,updateDBKey);
+    LastUpdateService updateService;
+    ColorService colorService;
+    OrderService orderService;
+    @Autowired
+    public VehiclesAPIController(OrderService orderService,ColorService colorService, LastUpdateService updateService) {
+        this.orderService = orderService;
+        this.colorService = colorService;
+        this.updateService = updateService;
+        colorService.setUpdateKey(updateDBKey);
+        orderService.setUpdateKey(updateDBKey);
+    }
 
     @RequestMapping(value = "/order/new", method = RequestMethod.POST)
     public void addOrder(HttpServletResponse response, @RequestBody CommandRequest command) {

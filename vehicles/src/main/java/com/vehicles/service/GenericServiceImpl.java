@@ -18,7 +18,7 @@ public class GenericServiceImpl<T> implements GenericService<T> {
 
     Class<T> clazz;
     GenericRepository<T> repository;
-
+    private String updateKey;
     public GenericServiceImpl(GenericRepository<T> repository) {
         init(repository);
     }
@@ -29,6 +29,17 @@ public class GenericServiceImpl<T> implements GenericService<T> {
                 .resolveTypeArgument(getClass(), GenericServiceImpl.class);
     }
 
+    @Override
+    public void setUpdateKey(String updateKey) {
+        this.updateKey = updateKey;
+    }
+
+    @Override
+    public String getUpdateKey() {
+       return this.updateKey;
+    }
+    
+    
     @Override
     public void save(T entity) throws Exception {
         if (entity == null) {

@@ -12,22 +12,25 @@ import com.vehicles.domain.enums.LastUpdate;
 import com.vehicles.repository.interfaces.ColorRepository;
 import com.vehicles.service.interfaces.LastUpdateService;
 import java.util.Date;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author kavan
  */
+@Service
 public class SimpleColorService extends GenericServiceImpl<Color> implements ColorService {
-
     private LastUpdateService updateService;
-    private final String updateKey;
-
+//    private String updateKey;
+    
+    @Autowired
     public SimpleColorService(ColorRepository repository,
-            LastUpdateService updateService, String updateKey ) {
+            LastUpdateService updateService ) {
         super(repository);
         this.updateService = updateService;
-        this.updateKey = updateKey;
-    }
+//        this.updateKey = updateKey;
+    }    
 
     @Override
     public void save(Color color) throws Exception {
@@ -61,7 +64,7 @@ public class SimpleColorService extends GenericServiceImpl<Color> implements Col
         }
         if(updated){
             try{
-                updateService.save(new LastUpdate(updateKey, new Date()));
+                updateService.save(new LastUpdate(getUpdateKey(), new Date()));
             }catch(Exception e){
                 
             }

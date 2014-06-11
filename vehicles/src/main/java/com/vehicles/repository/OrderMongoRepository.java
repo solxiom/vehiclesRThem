@@ -10,11 +10,13 @@ import com.vehicles.domain.entities.Order;
 import com.vehicles.domain.interfaces.Vehicle;
 import java.util.LinkedList;
 import java.util.List;
+import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author kavan
  */
+@Repository
 public class OrderMongoRepository extends GenericMongoRepository<Order> implements OrderRepository {
 
     public OrderMongoRepository() {

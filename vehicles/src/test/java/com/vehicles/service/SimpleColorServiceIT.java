@@ -37,7 +37,8 @@ public class SimpleColorServiceIT {
     public SimpleColorServiceIT() {
         repo = new ColorMongoRepository(SpringMongoTestConfig.class);
         updateService = new SimpleLastUpdateService(new LastUpdateMongoRepository());
-        service = new SimpleColorService(repo,updateService,dbUpdateKey);
+        service = new SimpleColorService(repo,updateService);
+        service.setUpdateKey(dbUpdateKey);
     }
 
     /**

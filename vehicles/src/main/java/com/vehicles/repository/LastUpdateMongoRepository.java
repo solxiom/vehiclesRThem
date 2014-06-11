@@ -8,11 +8,13 @@ package com.vehicles.repository;
 
 import com.vehicles.domain.enums.LastUpdate;
 import com.vehicles.repository.interfaces.LastUpdateRepository;
+import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author kavan
  */
+@Repository
 public class LastUpdateMongoRepository extends
         GenericMongoRepository<LastUpdate> implements LastUpdateRepository {
     

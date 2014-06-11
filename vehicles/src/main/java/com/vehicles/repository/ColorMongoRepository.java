@@ -8,11 +8,13 @@ package com.vehicles.repository;
 
 import com.vehicles.repository.interfaces.ColorRepository;
 import com.vehicles.domain.entities.Color;
+import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author kavan
  */
+@Repository
 public class ColorMongoRepository extends GenericMongoRepository<Color> implements ColorRepository{
 
     public ColorMongoRepository() {

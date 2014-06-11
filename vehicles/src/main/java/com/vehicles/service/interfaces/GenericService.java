@@ -22,5 +22,9 @@ public interface GenericService<T> {
     public List<T> findByField(String key, String value);
 
     public List<T> findAll();
+    
+    public void setUpdateKey(String updateKey);
+    
+    public String getUpdateKey();
 
 }
