@@ -17,11 +17,13 @@ import com.vehicles.domain.enums.ColorName;
 import com.vehicles.domain.enums.RiderGender;
 import com.vehicles.domain.interfaces.Vehicle;
 import com.vehicles.exceptions.BadCommandException;
+import org.springframework.stereotype.Component;
 
 /**
  *
  * @author kavan
  */
+@Component
 public class CommandUtil {
 
     public Order convertCommandToOrder(String command) throws BadCommandException {

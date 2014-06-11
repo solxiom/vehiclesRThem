@@ -30,17 +30,18 @@ public class VehiclesAPIController {
 
     private final String updateDBKey = "paf_interview_proto_1234567";
     private final Logger logger = Logger.getLogger(getClass().getName());
-    CommandUtil util = new CommandUtil();
-
-
+    CommandUtil util;
     LastUpdateService updateService;
     ColorService colorService;
     OrderService orderService;
     @Autowired
-    public VehiclesAPIController(OrderService orderService,ColorService colorService, LastUpdateService updateService) {
+    public VehiclesAPIController(OrderService orderService,
+            ColorService colorService,
+            LastUpdateService updateService, CommandUtil util) {
         this.orderService = orderService;
         this.colorService = colorService;
         this.updateService = updateService;
+        this.util = util;
         colorService.setUpdateKey(updateDBKey);
         orderService.setUpdateKey(updateDBKey);
     }
